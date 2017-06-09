@@ -1,3 +1,35 @@
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'test'
+});
+ 
+connection.connect();
+
+const query = `
+CREATE TABLE User (user_id VARCHAR(100) PRIMARY KEY,
+first_name varchar(100),
+last_name varchar(50),
+address varchar(200),
+city varchar(50),
+state varchar(50),
+zip_code INT(5),
+phone_number INT(10),
+email  varchar(100),
+rating varchar(4),
+reviews varchar(500),
+profile_image varchar(100),
+credit_card_details varchar(50));
+`;
+ 
+connection.query(query, function (error, results, fields) {
+ 
+});
+ 
+connection.end();
+
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
