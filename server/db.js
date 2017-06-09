@@ -1,11 +1,5 @@
 exports.createTables = function createTables(connection) {
-  connection.connect(function(err) {
-    if (err) {
-      console.error('error connecting: ' + err.stack);
-    } else {
-      console.log('connected as id ' + connection.threadId);
-    }
-  });
+  
 
 
   const UserQuery = `
@@ -19,6 +13,7 @@ exports.createTables = function createTables(connection) {
       zip_code INT(5),
       phone_number INT(10),
       email  varchar(100),
+      password  varchar(100),
       rating varchar(4),
       reviews varchar(500),
       profile_image varchar(100),
@@ -113,6 +108,7 @@ const TripsQuery = `
       
     );
   `;
+  
 
   connection.query(UserQuery, function(err, results, fields) {
     if (err) throw err;
@@ -143,6 +139,9 @@ const TripsQuery = `
   });
   
   
+  
 
-  connection.end();
+
+
+
 };
