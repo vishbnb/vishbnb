@@ -12,6 +12,12 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', function (req, res) {
   res.render('index', {title: 'Vishbnb'});
 });
+app.get('/signup', function (req, res) {
+  res.render('signup', {title: 'Sign Up'});
+});
+app.get('/login', function (req, res) {
+  res.render('login', {title: 'Log In'});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
