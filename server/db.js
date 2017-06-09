@@ -28,7 +28,7 @@ exports.createTables = function createTables(connection) {
     );
   `;
 
-  const HostQuery = `
+   const HostQuery = `
     CREATE TABLE IF NOT EXISTS Host (
       host_id VARCHAR(100),
       first_name varchar(100),
@@ -114,12 +114,34 @@ const TripsQuery = `
     );
   `;
 
-  const query = UserQuery + HostQuery + BillingQuery + AdminQuery + PropertiesQuery + TripsQuery;
-
-  connection.query(query, function(err, results, fields) {
+  connection.query(UserQuery, function(err, results, fields) {
     if (err) throw err;
     console.log(results);
   });
+  connection.query(HostQuery, function(err, results, fields) {
+    if (err) throw err;
+    console.log(results);
+  });
+  connection.query(BillingQuery, function(err, results, fields) {
+    if (err) throw err;
+    console.log(results);
+  });
+  
+  connection.query(AdminQuery, function(err, results, fields) {
+    if (err) throw err;
+    console.log(results);
+  });
+  
+  connection.query(PropertiesQuery, function(err, results, fields) {
+    if (err) throw err;
+    console.log(results);
+  });
+  
+  connection.query(TripsQuery, function(err, results, fields) {
+    if (err) throw err;
+    console.log(results);
+  });
+  
   
 
   connection.end();
