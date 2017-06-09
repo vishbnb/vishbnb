@@ -25,13 +25,16 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function (req, res) {
-  res.render('index', {title: 'Vishbnb'});
+  res.render('index', {title: 'Vishbnb', front: true});
 });
 app.get('/signup', function (req, res) {
   res.render('signup', {title: 'Sign Up'});
 });
 app.get('/login', function (req, res) {
   res.render('login', {title: 'Log In'});
+});
+app.get('/dashboard', function (req, res) {
+  res.render('dashboard', {title: 'Dashboard'});
 });
 
 // catch 404 and forward to error handler
