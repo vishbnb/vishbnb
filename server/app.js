@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json 
 app.use(bodyParser.json());
 app.get('/', function (req, res) {
-  res.render('index', {title: 'Vishbnb'});
+  res.render('index', {title: 'Vishbnb', front: true});
 });
 app.get('/signup', function (req, res) {
   res.render('signup', {title: 'Sign Up'});
@@ -42,6 +42,7 @@ app.get('/signup', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login', {title: 'Log In'});
 });
+
 app.post('/addUser', function(req, res) {
       var post = {
         user_id: uuid.v4(),
@@ -85,6 +86,11 @@ app.get("/",function(req,res){-
       });
 
     });
+
+app.get('/dashboard', function (req, res) {
+  res.render('dashboard', {title: 'Dashboard'});
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
